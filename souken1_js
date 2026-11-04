@@ -1,0 +1,24 @@
+// 建物内マップの画像サイズ
+const width = 1080;
+const height = 1920;
+
+// 地図を作成
+const map = L.map("map", {
+  crs: L.CRS.Simple,
+  minZoom: -2
+});
+
+// マップ画像の範囲
+const bounds = [
+  [0, 0],
+  [height, width]
+];
+
+// 建物内マップの画像
+L.imageOverlay(
+  "ここに建物内マップの画像URL",
+  bounds
+).addTo(map);
+
+// 地図の大きさを調整
+map.fitBounds(bounds);
