@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>建物内マップ</title>
+
+  <!-- LeafletのCSS -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+  <!-- 共通デザイン -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>工学部棟 建物内マップ</h1>
+
+  <!-- 大学全体マップに戻る -->
+  <a href="index.html">大学全体マップに戻る</a>
+
+  <!-- 階の切り替え -->
+  <div>
+    <button onclick="showFloor(1)">1階</button>
+    <button onclick="showFloor(2)">2階</button>
+  </div>
+
+  <!-- 地図を表示する場所 -->
+  <div id="map"></div>
+
+  <!-- LeafletのJavaScript -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- 建物内マップの処理 -->
+  <script src="building.js"></script>
+
+</body>
+</html>
