@@ -31,7 +31,7 @@ const goalInput =
 // 経路の初期値
 let routeLine = null;
 
- // 施設名と通路上の地点を対応させる
+// 施設名と通路上の地点を対応させる
 const facilitiesRouteNodes = {
   "学生なんでも相談室　特別支援サポートルーム": "C0",
   "学生支援相談ルーム": "A0",
