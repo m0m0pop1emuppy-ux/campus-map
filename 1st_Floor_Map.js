@@ -1,5 +1,5 @@
 const width = 1080;
-const height =1920;
+const height = 1920;
 
 // 地図を作成する
 const map = L.map("map", {
