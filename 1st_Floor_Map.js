@@ -1,60 +1,233 @@
 const width = 1080;
-const height = 1920;
+const height =1920;
 
-// ① 地図を作成する
+// 地図を作成する
 const map = L.map("map", {
   crs: L.CRS.Simple,
   minZoom: -2
 });
 
-// ② 画像全体の範囲を決める
+// 画像全体の範囲を決める
 const bounds = [
   [0, 0],
   [height, width]
 ];
 
 // 画像のURLを設定
-const imageUrl = "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map.png";
-
+const imageUrl = "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png";
 
 L.imageOverlay(imageUrl, bounds).addTo(map);
 
 // ④ 画像全体が画面に入るようにする
 map.fitBounds(bounds);
 
-// マーカーの大きさを指定する
-const icons = {
-  bullu:L.icon({
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-  iconSize: [12, 20],
-  iconAnchor: [8, 26],
-  popupAnchor: [0, -26]
-}),
- class: L.icon({
-    iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
-    iconSize: [16, 26],
-    iconAnchor: [8, 26],
-    popupAnchor: [0, -26]
-  })
+// 入力欄
+const startInput =
+  document.getElementById("startInput");
+
+const goalInput =
+  document.getElementById("goalInput");
+
+// 経路の初期値
+let routeLine = null;
+
+ // 施設名と通路上の地点を対応させる
+const facilitiesRouteNodes = {
+  "学生なんでも相談室　特別支援サポートルーム": "C1",
+  "学生支援相談ルーム": "A1",
+  "教務課": "A2",
+  "学生支援課": "A3",
+  "ALSOK学生談話室": "A4",
+  "小会議室": "D1",
+  "大会議室": "D2"
+};
+// 通路上の地点を登録
+const routeNodes = {
+  A0: [560, 610], 
+  A1: [750, 530], 
+  A2: [1030, 530],
+  A3: [1310, 610],
+  C0: [230, 490], 
+  D0: [1670, 490], 
+  D1: [1670, 290], 
+  
+  A0F: [580, 510], 
+  A1F: [750, 345], 
+  A2F: [1030, 350], 
+  A3F: [1310, 520],
+  D0F: [1590, 510],
+  D1F: [1590, 350],
+  
+  P0: [580, 350], 
+  P1: [1230, 350]
 };
 
-// 施設の情報を登録
-const facilities = [
-  { name: "学生なんでも相談室　特別支援サポートルーム", x: 490, y: 230, type: "class"},
-  { name: "学生支援相談ルーム", x: 610, y: 560, type: "class"},
-  { name: "教務課", x: 530, y: 750, type: "class"},
-  { name: "学生支援課", x: 530, y: 1030, type: "class"},
-  { name: "ALSOK学生談話室", x: 610, y: 1310, type: "class"},
-  { name: "小会議室", x: 490, y: 1670, type: "class"},
-  { name: "大会議室", x: 290, y: 1670, type: "class"}
+// 直接つながっている地点を登録
+const connections = [
+  ["A0", "A0F"],
+  ["A1", "A1F"],
+  ["A2", "A2F"],
+  ["A3", "A3F"],
+  ["D0", "D0F"],
+  ["D1", "D1F"],
+  
+  ["C0", "A0F"],
+  ["A0F", "P0"],
+  ["P0", "A1F"],
+  ["A1F", "A2F"],
+  ["A2F", "P1"],
+  ["P1", "A2F"],
+  ["A3F", "D0F"],
+  ["D0F", "D1F"]
 ];
 
-// 登録した施設を地図上に表示
-  facilities.forEach(facility => {
-  const marker = L.marker(
-    [facility.y, facility.x],
-    { icon: icons[facility.type] }
-  ).addTo(map);
+document.getElementById("routeButton")
+  .addEventListener("click", function() {
 
-  marker.bindPopup(facility.name);
-});
+    const startName = startInput.value.trim();
+    const goalName = goalInput.value.trim();
+
+    if (!startName || !goalName) {
+      document.getElementById("routeMessage")
+        .textContent = "出発地と目的地を入力してください";
+      return;
+    }
+
+    // 施設名が登録されているか確認
+    if (
+      !facilitiesRouteNodes[startName] ||
+      !facilitiesRouteNodes[goalName]
+    ) {
+      document.getElementById("routeMessage")
+        .textContent = "施設名が見つかりません";
+      return;
+    }
+
+    if (startName === goalName) {
+      document.getElementById("routeMessage")
+        .textContent = "出発地と目的地が同じです";
+      return;
+    }
+
+    // 最短経路を検索
+    const path = findRoute(
+      facilitiesRouteNodes[startName],
+      facilitiesRouteNodes[goalName]
+    );
+
+    if (!path) {
+      document.getElementById("routeMessage")
+        .textContent = "経路が見つかりません";
+      return;
+    }
+
+    // 前の経路を消去
+    if (routeLine) {
+      map.removeLayer(routeLine);
+    }
+
+    // 経路を地図に表示
+    const points = path.map(id => routeNodes[id]);
+
+    routeLine = L.polyline(points, {
+      color: "blue",
+      weight: 5
+    }).addTo(map);
+
+    // 経路全体が画面に入るようにする
+    map.fitBounds(routeLine.getBounds(), {
+      padding: [30, 30]
+    });
+
+    document.getElementById("routeMessage")
+      .textContent = "経路を表示しました";
+
+  });
+
+// 最短経路
+function findRoute(start, goal) {
+
+  const distance = {};
+  const previous = {};
+  const visited = new Set();
+
+  Object.keys(routeNodes).forEach(id => {
+    distance[id] = Infinity;
+  });
+
+  distance[start] = 0;
+
+  while (true) {
+
+    let current = null;
+
+    Object.keys(routeNodes).forEach(id => {
+      if (!visited.has(id) &&
+          (current === null ||
+           distance[id] < distance[current])) {
+        current = id;
+      }
+    });
+
+    if (current === null ||
+        distance[current] === Infinity) {
+      break;
+    }
+
+    if (current === goal) break;
+
+    visited.add(current);
+
+    connections.forEach(([a, b]) => {
+
+      let next = null;
+
+      if (a === current) next = b;
+      if (b === current) next = a;
+
+      if (next !== null) {
+
+        const d = Math.hypot(
+          routeNodes[current][0] - routeNodes[next][0],
+          routeNodes[current][1] - routeNodes[next][1]
+        );
+
+        const newDistance = distance[current] + d;
+
+        if (newDistance < distance[next]) {
+          distance[next] = newDistance;
+          previous[next] = current;
+        }
+      }
+
+    });
+
+  }
+
+  if (distance[goal] === Infinity) {
+    return null;
+  }
+
+  const path = [];
+  let current = goal;
+
+  while (current !== undefined) {
+    path.unshift(current);
+    current = previous[current];
+  }
+
+  return path;
+}
+// 経路消去
+document.getElementById("clearRouteButton")
+  .addEventListener("click", function() {
+
+    if (routeLine) {
+      map.removeLayer(routeLine);
+      routeLine = null;
+    }
+
+    document.getElementById("routeMessage")
+      .textContent = "";
+
+  });
