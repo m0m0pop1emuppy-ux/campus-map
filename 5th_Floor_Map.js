@@ -32,7 +32,7 @@ const goalInput =
 // 経路の初期値
 let routeLine = null;
 
- // 施設名と通路上の地点を対応させる
+// 施設名と通路上の地点を対応させる
 const facilitiesRouteNodes = {
   "B522": "B2",
   "B553": "B3",
