@@ -64,7 +64,14 @@ const facilities = [
   { name: "体育測定室", x: 865, y: 580, type:"class"},
   { name: "生物学実験室", x: 980, y: 580, type:"class"},
   { name: "第一化学実験室", x: 140, y: 600, type: "class"},
-  { name: "第二化学実験室", x: 260, y: 540, type: "class"}
+  { name: "第二化学実験室", x: 260, y: 540, type: "class"},
+  { name: "非常勤講師控室", x: 206, y: 1170, type: "class"},
+  { name: "物理学実験室", x: 206, y: 1000, type: "class"},
+  { name: "地学実習室", x: 206, y: 800, type: "class"},
+  { name: "院生会室", x: 318, y: 1122, type: "class"},
+  { name: "物理学実験室", x: 318, y:1000, type: "class"},
+  { name: "地学実習室", x: 318, y: 800, type: "class"},
+  { name: "機械室", x: 980, y:1200, type: "class"}
 ];
 
 // 登録した施設を地図上に表示
