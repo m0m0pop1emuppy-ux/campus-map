@@ -2,7 +2,9 @@
 const floors = {
   1: window.floor1Data,
   2: window.floor2Data,
-  3: window.floor3Data
+  3: window.floor3Data,
+  4: window.floor4Data,
+  5: window.floor5Data
 };
 
 // 現在表示している階
