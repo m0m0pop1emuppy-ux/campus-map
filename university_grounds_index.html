@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新大マップ</title>
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+  </head>
+  <body>
+    <h1>新大マップ</h1>
+    <!--検索バー始め-->
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="施設名を入力"
+  >
+  <button id="searchButton">検索</button>
+</div>
+
+<div id="message"></div> <!--メッセージ表示場所-->
+    <div id="map"></div> <!--地図表示場所-->
+<!--検索バー終わり-->
+
+<!--出発地点と目的地設定-->
+<div class="route-box">
+  <label>出発地</label>
+  <input
+    type="text"
+    id="startInput"
+    placeholder="入力してください"
+  >
+
+  <label>目的地</label>
+  <input
+    type="text"
+    id="goalInput"
+    placeholder="入力してください"
+  >
+
+  <button id="routeButton">経路を表示</button>
+  <button id="clearRouteButton">経路を消去</button>
+
+  <div id="routeMessage"></div>
+
+</div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
