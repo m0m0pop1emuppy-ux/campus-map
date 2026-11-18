@@ -1,7 +1,9 @@
-const width = 1080;
-const height = 1920;
+window.floor1Data = {  //ここの数字は階ごとで変えること
 
+  width: 1080,
+  height: 1920,
 
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
 const facilitiesRouteNodes = {
