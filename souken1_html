@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">　<!--ここでcssの指定-->
+    <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新大マップ</title>
 
@@ -14,7 +14,15 @@
   </head>
   <body>
     <h1>新大マップ</h1>
+     <!-- 階数切り替え -->
+  <div class="floor-buttons">
+    <button onclick="changeFloor(1)">1階</button>
+    <button onclick="changeFloor(2)">2階</button>
+    <button onclick="changeFloor(3)">3階</button>
+  </div>
 
+  <div id="map"></div>
+   
 <!--出発地点と目的地設定-->
 <div class="route-box">
   <label>出発地</label>
@@ -37,10 +45,19 @@
   <div id="routeMessage"></div>
 
 </div>
-    
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script> <!--ここでjsの指定-->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- 各階のデータ -->
+<script src="floor1.js"></script>
+<script src="floor2.js"></script>
+<script src="floor3.js"></script>
+
+<!-- 階数間の接続データ -->
+<script src="floorConnections.js"></script>
+
+<!-- マップ・経路処理 -->
+<script src="script.js"></script>
+   
   </body>
 </html>
-
- 
