@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新大マップ</title>
 
-  <title>建物内マップ</title>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"　<!--ここでcssの指定-->
+    >
 
-  <!-- LeafletのCSS -->
-  <link rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css">
+  </head>
+  <body>
+    <h1>新大マップ</h1>
 
-  <!-- 共通デザイン -->
-  <link rel="stylesheet" href="style.css">
-</head>
+<!--出発地点と目的地設定-->
+<div class="route-box">
+  <label>出発地</label>
+  <input
+    type="text"
+    id="startInput"
+    placeholder="入力してください"
+  >
 
-<body>
+  <label>目的地</label>
+  <input
+    type="text"
+    id="goalInput"
+    placeholder="入力してください"
+  >
 
-  <h1>工学部棟 建物内マップ</h1>
+  <button id="routeButton">経路を表示</button>
+  <button id="clearRouteButton">経路を消去</button>
 
-  <!-- 大学全体マップに戻る -->
-  <a href="index.html">大学全体マップに戻る</a>
+  <div id="routeMessage"></div>
 
-  <!-- 階の切り替え -->
-  <div>
-    <button onclick="showFloor(1)">1階</button>
-    <button onclick="showFloor(2)">2階</button>
-  </div>
-
-  <!-- 地図を表示する場所 -->
-  <div id="map"></div>
-
-  <!-- LeafletのJavaScript -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <!-- 建物内マップの処理 -->
-  <script src="building.js"></script>
-
-</body>
+</div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script> <!--ここでjsの指定-->
+  </body>
 </html>
+
+ 
