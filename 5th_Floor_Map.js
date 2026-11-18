@@ -3,7 +3,7 @@ window.floor5Data = {  //ここの数字は階ごとで変えること
   width: 1080,
   height: 1920,
 
-  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png",
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/5st_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
 facilitiesRouteNodes = {
@@ -32,6 +32,7 @@ routeNodes = {
 
   S5B1: [1550, 1000], //階段1
   S5B2: [415, 1000], //階段2
+  S5B3: [1490, 1000] //エレベーター
 };
 
 // 直接つながっている地点を登録
@@ -51,6 +52,7 @@ connections = [
   ["P55", "P56"],
   ["P56", "P57"],
   ["P57", "P58"],
-  ["P58", "S5B1"]
+  ["P58", "S5B1"],
+  ["P57", "S5B3"]
 ];
 
