@@ -1,24 +1,55 @@
-// 建物内マップの画像サイズ
-const width = 1080;
-const height = 1920;
+window.floor1Data = {
 
-// 地図を作成
-const map = L.map("map", {
-  crs: L.CRS.Simple,
-  minZoom: -2
-});
+  width: 1080,
+  height: 1920,
 
-// マップ画像の範囲
-const bounds = [
-  [0, 0],
-  [height, width]
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png",
+
+// 施設名と通路上の地点を対応させる
+const facilitiesRouteNodes = {
+  "学生なんでも相談室　特別支援サポートルーム": "C0",
+  "学生支援相談ルーム": "A0",
+  "教務課": "A1",
+  "学生支援課": "A2",
+  "ALSOK学生談話室": "A3",
+  "小会議室": "D0",
+  "大会議室": "D1" //エレベーター、トイレ、階段、出入口
+};
+// 通路上の地点を登録
+const routeNodes = {
+  A0: [560, 610], 
+  A1: [750, 530], 
+  A2: [1030, 530],
+  A3: [1310, 610],
+  C0: [230, 490], 
+  D0: [1670, 490], 
+  D1: [1670, 290], 
+  
+  P0: [580, 510], 
+  P1: [580, 350], 
+  P2: [750, 345], 
+  P3: [1030, 350], 
+  P4: [1230, 350],
+  P5: [1310, 520],
+  P6: [1590, 510],
+  P7: [1590, 350]
+};
+
+// 直接つながっている地点を登録
+const connections = [
+  ["A0", "P0"],
+  ["A1", "P2"],
+  ["A2", "P3"],
+  ["A3", "P5"],
+  ["D0", "P6"],
+  ["D1", "P7"],
+  
+  ["C0", "P0"],
+  ["P0", "P1"],
+  ["P0", "P2"],
+  ["P2", "P3"],
+  ["P3", "P4"],
+  ["P4", "P5"],
+  ["P5", "P6"],
+  ["P6", "P7"]
 ];
-
-// 建物内マップの画像
-L.imageOverlay(
-  "ここに建物内マップの画像URL",
-  bounds
-).addTo(map);
-
-// 地図の大きさを調整
-map.fitBounds(bounds);
