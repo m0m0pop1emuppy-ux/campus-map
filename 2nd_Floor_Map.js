@@ -1,36 +1,9 @@
-const width = 1080;
-const height =1920;
+window.floor2Data = {  //ここの数字は階ごとで変えること
 
-// 地図を作成する
-const map = L.map("map", {
-  crs: L.CRS.Simple,
-  minZoom: -2
-});
+  width: 1080,
+  height: 1920,
 
-// 画像全体の範囲を決める
-const bounds = [
-  [0, 0],
-  [height, width]
-];
-
-// 画像のURLを設定
-const imageUrl = "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/2nd_Floor_Map_color.png";
-
-
-L.imageOverlay(imageUrl, bounds).addTo(map);
-
-// ④ 画像全体が画面に入るようにする
-map.fitBounds(bounds);
-
-// 入力欄
-const startInput =
-  document.getElementById("startInput");
-
-const goalInput =
-  document.getElementById("goalInput");
-
-// 経路の初期値
-let routeLine = null;
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/2nd_Floor_Map_color.png",
  
  // 施設名と通路上の地点を対応させる
 const facilitiesRouteNodes = {
