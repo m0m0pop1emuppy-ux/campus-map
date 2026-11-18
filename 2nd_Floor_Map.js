@@ -73,9 +73,9 @@ const facilitiesRouteNodes = {
   "F階段1": "S2F1",
   "F階段2": "S2F2",
   "G階段": "S2G",
-  "EVA":"EV2A",
-  "EVB":"EV2B",
-  "EVF":"EV2F",
+  "AEV":"EV2A",
+  "BEV":"EV2B",
+  "FEV":"EV2F",
 };
 
 // 通路上の地点を登録
