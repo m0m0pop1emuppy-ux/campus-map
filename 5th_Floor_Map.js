@@ -1,5 +1,12 @@
+window.floor5Data = {  //ここの数字は階ごとで変えること
+
+  width: 1080,
+  height: 1920,
+
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png",
+
 // 施設名と通路上の地点を対応させる
-const facilitiesRouteNodes = {
+facilitiesRouteNodes = {
   "B522": "B522", //B2
   "B553": "B553", //B3
   "B544": "B544", //B4
@@ -7,7 +14,7 @@ const facilitiesRouteNodes = {
   
 };
 // 通路上の地点を登録
-const routeNodes = {
+routeNodes = {
   B522: [1240, 930],
   B553: [960, 930],
   B544: [750, 930],
@@ -28,7 +35,7 @@ const routeNodes = {
 };
 
 // 直接つながっている地点を登録
-const connections = [
+connections = [
   ["B522", "P53"],
   ["B553", "P52"],
   ["B544", "P51"],
