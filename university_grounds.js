@@ -66,6 +66,17 @@ const markersByName = {};
 
  // 施設名とマーカーを紐づける
   markersByName[facility.name] = marker;
+
+// 総合研究棟内へ飛ぶ
+  let popupContent = `<b>${facility.name}</b>`;
+  if (facility.mapUrl) {
+    popupContent += `
+      <br>
+      <a href="${facility.mapUrl}">
+        建物内マップを見る
+      </a>
+    `;
+  }
 });
 //検索機能
 document.getElementById("searchButton").addEventListener("click", () => {
