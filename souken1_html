@@ -19,6 +19,8 @@
     <button onclick="changeFloor(1)">1階</button>
     <button onclick="changeFloor(2)">2階</button>
     <button onclick="changeFloor(3)">3階</button>
+    <button onclick="changeFloor(4)">4階</button>
+    <button onclick="changeFloor(5)">5階</button>
   </div>
 
   <div id="map"></div>
@@ -52,6 +54,8 @@
 <script src="floor1.js"></script>
 <script src="floor2.js"></script>
 <script src="floor3.js"></script>
+<script src="floor4.js"></script>
+<script src="floor5.js"></script>
 
 <!-- 階数間の接続データ -->
 <script src="floorConnections.js"></script>
