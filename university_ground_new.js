@@ -42,7 +42,7 @@ const icons = {
 // 施設の情報を登録
 const facilities = [
   { name: "工学部棟", x: 1400, y: 290, type: "red", mapUrl: null },
-  { name: "総合研究棟", x: 870, y: 425, type: "red", mapUrl: "./souken1_html"}, //名前あとで変更
+  { name: "総合研究棟", x: 870, y: 425, type: "red", mapUrl: "./research_building.html"}, //名前あとで変更
   { name: "理学部棟", x: 1020, y: 420, type: "red", mapUrl: null},
   { name: "教育学部棟", x: 1010, y: 658, type: "red", mapUrl: null},
   { name: "農学部棟", x: 710, y: 710, type: "red", mapUrl: null},
