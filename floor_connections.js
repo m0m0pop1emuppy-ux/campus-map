@@ -17,3 +17,9 @@ window.floorConnections = [
   "A棟EV":"EV2A",
   "B棟EV":"EV2B",
   "F棟EV":"EV2F",
+  "A棟階段" : "SA3",
+  "B棟階段" : "SB3",
+  "D棟階段" : "SD3",
+  "F棟階段1" : "SF31", // トイレ付近
+  "F棟階段2" : "SF32", // G棟付近
+  "G棟階段" : "SG3"
