@@ -7,7 +7,7 @@ window.floor3Data = {  //ここの数字は階ごとで変えること
   imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/3rd_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
-const facilitiesRouteNodes = {
+facilitiesRouteNodes = {
   "図書館": "A30",
   "B350": "B30",
   "B351": "B31",
