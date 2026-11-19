@@ -1,6 +1,12 @@
+window.floor4Data = {  //ここの数字は階ごとで変えること
 
+  width: 1080,
+  height: 1920,
+
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/4th_Floor_Map_color.png",
+  
 // 施設名と通路上の地点を対応させる
-const facilitiesRouteNodes = {
+facilitiesRouteNodes = {
   "B450": "B40",
   "B451": "B41",
   "B452": "B42",
@@ -21,7 +27,7 @@ const facilitiesRouteNodes = {
   "エレベーターB": "E42"
 };
 // 通路上の地点を登録
-const routeNodes = {
+routeNodes = {
   B40: [1240, 625], 
   B41: [1280, 535], 
   B42: [1030, 625], 
@@ -59,7 +65,7 @@ const routeNodes = {
 };
 
 // 直接つながっている地点を登録
-const connections = [
+connections = [
   ["B40", "P43"],
   ["B41", "P43"],
   ["B42", "P42"],
