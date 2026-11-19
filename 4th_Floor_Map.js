@@ -6,7 +6,7 @@ window.floor4Data = {  //ここの数字は階ごとで変えること
   imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/4th_Floor_Map_color.png",
   
 // 施設名と通路上の地点を対応させる
-facilitiesRouteNodes = {
+facilitiesRouteNodes: {
   "B450": "B40",
   "B451": "B41",
   "B452": "B42",
@@ -25,9 +25,9 @@ facilitiesRouteNodes = {
   "階段G下": "S46",
   "エレベーターA": "E41",
   "エレベーターB": "E42"
-};
+},
 // 通路上の地点を登録
-routeNodes = {
+routeNodes; {
   B40: [1240, 625], 
   B41: [1280, 535], 
   B42: [1030, 625], 
@@ -62,10 +62,10 @@ routeNodes = {
   P4C: [765, 960],
   P4D: [660, 190],
   P4E: [1365, 190]
-};
+},
 
 // 直接つながっている地点を登録
-connections = [
+connections: [
   ["B40", "P43"],
   ["B41", "P43"],
   ["B42", "P42"],
@@ -99,4 +99,5 @@ connections = [
   ["P4A", "P4B"],
   ["P44", "P49"],
   ["P45", "P49"],
-];
+]
+};
