@@ -6,7 +6,7 @@ window.floor2Data = {  //ここの数字は階ごとで変えること
   imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/2nd_Floor_Map_color.png",
  
  // 施設名と通路上の地点を対応させる
-facilitiesRouteNodes = {
+facilitiesRouteNodes: {
   "非常勤講師控室": "A20",
   "院生会室": "A21",
   "物理学実験室1": "A22",
@@ -49,10 +49,10 @@ facilitiesRouteNodes = {
   "A棟EV":"EV2A",
   "B棟EV":"EV2B",
   "F棟EV":"EV2F",
-};
+},
 
 // 通路上の地点を登録
-routeNodes = {
+routeNodes: {
   A20: [1170, 206], //非常勤講師控室
   A21: [1122, 318], //院生会室
   A22: [1000, 206], //物理学実験室1
@@ -133,10 +133,10 @@ routeNodes = {
   P234: [660, 918],
   P235: [580, 918],
   P236: [510, 918],
-};
+},
 
 // 直接つながっている地点を登録
-connections = [
+connections: [
   ["A20", "P214"],
   ["A21", "P214"],
   ["A22", "P213"],
@@ -220,4 +220,5 @@ connections = [
   ["P233", "P234"],
   ["P234", "P235"],
   ["P235", "P236"]
-];
+]
+};
