@@ -5,8 +5,8 @@ window.floorConnections = [
   { fromFloor: 1, fromNode: "P1", toFloor: 2, toNode: "P0", type: "stairs" },
   { fromFloor: 2, fromNode: "S2A1", toFloor: 3, toNode: "SA3", type: "stairs" },
   { fromFloor: 2, fromNode: "S2A2", toFloor: 3, toNode: "P0", type: "stairs" }, //接続なし
-  { fromFloor: 2, fromNode: "S2B1", toFloor: 3, toNode: "P0", type: "stairs" },
-  { fromFloor: 2, fromNode: "S2B2", toFloor: 3, toNode: "P0", type: "stairs" },
+  { fromFloor: 2, fromNode: "S2B1", toFloor: 3, toNode: "SB3", type: "stairs" },
+  { fromFloor: 2, fromNode: "S2B2", toFloor: 3, toNode: "P0", type: "stairs" }, //なぜかない
   { fromFloor: 2, fromNode: "S2D", toFloor: 3, toNode: "SD3", type: "stairs" },
   { fromFloor: 2, fromNode: "S2F1", toFloor: 3, toNode: "P0", type: "stairs" },
   { fromFloor: 2, fromNode: "S2F2", toFloor: 3, toNode: "P0", type: "stairs" },
