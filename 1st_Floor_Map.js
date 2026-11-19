@@ -6,7 +6,7 @@ window.floor1Data = {  //ここの数字は階ごとで変えること
   imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/1st_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
-facilitiesRouteNodes = {
+facilitiesRouteNodes : {
   "学生なんでも相談室　特別支援サポートルーム": "C10",
   "学生支援相談ルーム": "A10",
   "教務課": "A11",
@@ -19,7 +19,7 @@ facilitiesRouteNodes = {
   "エレベーター": "E11"
 };
 // 通路上の地点を登録
-routeNodes = {
+routeNodes : {
   A10: [560, 610], 
   A11: [750, 530], 
   A12: [1030, 530],
@@ -44,7 +44,7 @@ routeNodes = {
 };
 
 // 直接つながっている地点を登録
-connections = [
+connections : [
   ["A10", "P10"],
   ["A11", "P12"],
   ["A12", "P13"],
