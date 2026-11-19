@@ -3,7 +3,7 @@ window.floor5Data = {  //ここの数字は階ごとで変えること
   width: 1080,
   height: 1920,
 
-  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/5st_Floor_Map_color.png",
+  imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/5th_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
 facilitiesRouteNodes = {
