@@ -7,7 +7,7 @@ window.floor3Data = {  //ここの数字は階ごとで変えること
   imageUrl: "https://raw.githubusercontent.com/m0m0pop1emuppy-ux/campus-map/main/3rd_Floor_Map_color.png",
 
 // 施設名と通路上の地点を対応させる
-facilitiesRouteNodes = {
+facilitiesRouteNodes: {
   "図書館": "A30",
   "B350": "B30",
   "B351": "B31",
@@ -53,10 +53,10 @@ facilitiesRouteNodes = {
   "F棟階段1" : "SF31", // トイレ付近
   "F棟階段2" : "SF32", // G棟付近
   "G棟階段" : "SG3"
-};
+},
 
 // 通路上の地点を登録
-routeNodes = { //constを消す
+routeNodes: { //constを消す
    A30: [1030, 247],  
   B30: [1200, 642], 
   B31: [1194, 524], 
@@ -129,10 +129,10 @@ routeNodes = { //constを消す
   P323: [1010,590],
   P324: [1130,590],
   P325: [1200,590]
-};
+},
 
 // 直接つながっている地点を登録
-connections = [ //constを消す
+connections: [ //constを消す
  ["A30", "P30"],
   ["B30", "P325"],
   ["B31", "P324"],
@@ -209,4 +209,5 @@ connections = [ //constを消す
   ["P314", "SF31"],
   ["P314", "SF32"],
   ["P318", "SG3"]
-];
+]
+};
