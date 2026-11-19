@@ -72,7 +72,7 @@ const markersByName = {};
   if (facility.mapUrl) {
     popupContent += `
       <br>
-      <a href="${facility.mapUrl}">
+      <a href="${facility.mapUrl}" target="_self">
         建物内マップを見る
       </a>
     `;
