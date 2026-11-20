@@ -27,7 +27,7 @@ facilitiesRouteNodes: {
   "エレベーターB": "E42"
 },
 // 通路上の地点を登録
-routeNodes; {
+routeNodes: {
   B40: [1240, 625], 
   B41: [1280, 535], 
   B42: [1030, 625], 
