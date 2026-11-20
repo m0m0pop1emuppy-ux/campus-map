@@ -365,8 +365,8 @@ function createRouteSegments(path) {
 
     // Leaflet用に [y, x] に変換
     const point = [
-      position[1],
-      position[0]
+      position[0],
+      position[1]
     ];
 
 
