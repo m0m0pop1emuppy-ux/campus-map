@@ -22,6 +22,6 @@ window.floorConnections = [
   { fromFloor: 3, fromNode: "SG3", toFloor: 4, toNode: "S46", type: "stairs" },
 
   // 2階と3階：エレベーターB
-  { fromFloor: 2, fromNode: "P5", toFloor: 3, toNode: "P5", type: "elevator" }
+  { fromFloor: 1, fromNode: "E11", toFloor: 2, toNode: "EV2A", type: "elevator" }
 ];
 
